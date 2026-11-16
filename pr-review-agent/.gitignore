@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+traces/
+*.egg-info/
+.pytest_cache/
+examples/out/
+eval/cases/out/
+eval/cases/

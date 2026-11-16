@@ -1,0 +1,374 @@
+{
+  "llm": "baseline",
+  "model": null,
+  "summary": {
+    "cases": 26,
+    "defects": 20,
+    "true_positives": 12,
+    "false_negatives": 8,
+    "false_positives": 0,
+    "recall": 0.6,
+    "precision": 1.0,
+    "clean_cases": 6,
+    "clean_cases_with_no_comments": 6,
+    "by_category": {
+      "bug": {
+        "defects": 8,
+        "caught": 3,
+        "recall": 0.375
+      },
+      "security": {
+        "defects": 8,
+        "caught": 5,
+        "recall": 0.625
+      },
+      "tests": {
+        "defects": 4,
+        "caught": 4,
+        "recall": 1.0
+      }
+    },
+    "total_cost_usd": 0.0,
+    "avg_cost_usd": 0.0,
+    "avg_latency_s": 0.02,
+    "dropped_by_guardrail": 0
+  },
+  "cases": [
+    {
+      "id": "bug01_string_eq",
+      "category": "bug",
+      "expected": 1,
+      "tp": 1,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.07,
+      "dropped": 0,
+      "findings": [
+        "bug@42: String compared with == instead of equals()"
+      ]
+    },
+    {
+      "id": "bug02_optional_get",
+      "category": "bug",
+      "expected": 1,
+      "tp": 1,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": [
+        "bug@23: Optional.get() called without checking isPresent()"
+      ]
+    },
+    {
+      "id": "bug03_off_by_one",
+      "category": "bug",
+      "expected": 1,
+      "tp": 0,
+      "fn": 1,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": []
+    },
+    {
+      "id": "bug04_resource_leak",
+      "category": "bug",
+      "expected": 1,
+      "tp": 0,
+      "fn": 1,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": []
+    },
+    {
+      "id": "bug05_swallowed_exception",
+      "category": "bug",
+      "expected": 1,
+      "tp": 1,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": [
+        "bug@58: Exception swallowed by an empty catch block"
+      ]
+    },
+    {
+      "id": "bug06_integer_division",
+      "category": "bug",
+      "expected": 1,
+      "tp": 0,
+      "fn": 1,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": []
+    },
+    {
+      "id": "bug07_null_map_value",
+      "category": "bug",
+      "expected": 1,
+      "tp": 0,
+      "fn": 1,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": []
+    },
+    {
+      "id": "bug08_concurrent_modification",
+      "category": "bug",
+      "expected": 1,
+      "tp": 0,
+      "fn": 1,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": []
+    },
+    {
+      "id": "sec01_sql_injection",
+      "category": "security",
+      "expected": 1,
+      "tp": 1,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": [
+        "security@20: SQL built by string concatenation (SQL injection)"
+      ]
+    },
+    {
+      "id": "sec02_hardcoded_secret",
+      "category": "security",
+      "expected": 1,
+      "tp": 1,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": [
+        "security@10: Hardcoded credential in source code"
+      ]
+    },
+    {
+      "id": "sec03_password_in_log",
+      "category": "security",
+      "expected": 1,
+      "tp": 1,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.02,
+      "dropped": 0,
+      "findings": [
+        "security@31: Sensitive value written to the log"
+      ]
+    },
+    {
+      "id": "sec04_md5_password",
+      "category": "security",
+      "expected": 1,
+      "tp": 1,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": [
+        "security@12: Weak hash algorithm"
+      ]
+    },
+    {
+      "id": "sec05_path_traversal",
+      "category": "security",
+      "expected": 1,
+      "tp": 0,
+      "fn": 1,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": []
+    },
+    {
+      "id": "sec06_missing_authorization",
+      "category": "security",
+      "expected": 1,
+      "tp": 0,
+      "fn": 1,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": []
+    },
+    {
+      "id": "sec07_command_injection",
+      "category": "security",
+      "expected": 1,
+      "tp": 1,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": [
+        "security@14: Command execution with dynamic input"
+      ]
+    },
+    {
+      "id": "sec08_insecure_random_token",
+      "category": "security",
+      "expected": 1,
+      "tp": 0,
+      "fn": 1,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": []
+    },
+    {
+      "id": "tst01_new_refund_method",
+      "category": "tests",
+      "expected": 1,
+      "tp": 1,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": [
+        "tests@40: New public method `refund` has no test"
+      ]
+    },
+    {
+      "id": "tst02_new_status_transition",
+      "category": "tests",
+      "expected": 1,
+      "tp": 1,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.02,
+      "dropped": 0,
+      "findings": [
+        "tests@63: New public method `reopen` has no test"
+      ]
+    },
+    {
+      "id": "tst03_new_endpoint",
+      "category": "tests",
+      "expected": 1,
+      "tp": 1,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": [
+        "tests@50: New public method `cancel` has no test"
+      ]
+    },
+    {
+      "id": "tst04_new_validation_branch",
+      "category": "tests",
+      "expected": 1,
+      "tp": 1,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": [
+        "tests@27: New public method `isStrongPassword` has no test"
+      ]
+    },
+    {
+      "id": "ok01_rename_variable",
+      "category": "clean",
+      "expected": 0,
+      "tp": 0,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.1,
+      "dropped": 0,
+      "findings": []
+    },
+    {
+      "id": "ok02_parameterized_query",
+      "category": "clean",
+      "expected": 0,
+      "tp": 0,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": []
+    },
+    {
+      "id": "ok03_add_logging",
+      "category": "clean",
+      "expected": 0,
+      "tp": 0,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": []
+    },
+    {
+      "id": "ok04_extract_constant",
+      "category": "clean",
+      "expected": 0,
+      "tp": 0,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": []
+    },
+    {
+      "id": "ok05_javadoc_only",
+      "category": "clean",
+      "expected": 0,
+      "tp": 0,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": []
+    },
+    {
+      "id": "ok06_test_only_change",
+      "category": "clean",
+      "expected": 0,
+      "tp": 0,
+      "fn": 0,
+      "fp": 0,
+      "cost_usd": 0.0,
+      "latency_s": 0.01,
+      "dropped": 0,
+      "findings": []
+    }
+  ]
+}

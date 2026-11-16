@@ -1,0 +1,26 @@
+diff --git a/src/main/java/com/example/user/UserDao.java b/src/main/java/com/example/user/UserDao.java
+--- a/src/main/java/com/example/user/UserDao.java
++++ b/src/main/java/com/example/user/UserDao.java
+@@ -19,4 +19,5 @@
+     public List<User> search(String name) {
+-        return jdbc.query("SELECT * FROM users WHERE name = ?", mapper, name);
++        String sql = "SELECT * FROM users WHERE name = '" + name + "'";
++        return jdbc.query(sql, mapper);
+     }
+diff --git a/src/main/java/com/example/user/UserService.java b/src/main/java/com/example/user/UserService.java
+--- a/src/main/java/com/example/user/UserService.java
++++ b/src/main/java/com/example/user/UserService.java
+@@ -22,4 +22,13 @@
+     public UserDto findByEmail(String email) {
+-        return repo.findByEmail(email).map(mapper::toDto).orElseThrow(UserNotFoundException::new);
++        User user = repo.findByEmail(email).get();
++        return mapper.toDto(user);
+     }
++
++    public boolean isAdmin(User user) {
++        if (user.getRole() == "ADMIN") {
++            return true;
++        }
++        return false;
++    }
+ }
